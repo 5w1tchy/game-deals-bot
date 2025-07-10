@@ -49,7 +49,7 @@ def fetch_epic_freebies():
         if not image and key_images:
             image = key_images[0].get("url")
 
-        # 🔍 Add description and price
+        # Add description and price
         description = element.get("description") or "No description available."
         price = element.get("price", {}).get("totalPrice", {}).get(
             "fmtPrice", {}).get("originalPrice")

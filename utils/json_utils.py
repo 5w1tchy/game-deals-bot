@@ -63,7 +63,7 @@ def write_posted_messages(messages_data):
 def read_posted_games():
     data = _ensure_file(POSTED_GAMES_FILE, {"games": {}})
     if not isinstance(data.get("games"), dict):
-        data["games"] = {}  # Fix corrupted data automatically
+        data["games"] = {}
         write_json(POSTED_GAMES_FILE, data)
     return data
 

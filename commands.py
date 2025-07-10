@@ -5,11 +5,9 @@ from datetime import datetime, timezone
 import discord
 from discord.ext import commands
 
-import config
 from scrapers.epic_freebies_scraper import fetch_epic_freebies
 from scrapers.game_informer_scraper import get_pc_games_for_month
 from scrapers.steam_scraper import fetch_steam_deals
-from utils.steam_utils import get_steam_link_and_image
 
 
 def setup_commands(bot):
@@ -24,7 +22,7 @@ def setup_commands(bot):
     @bot.command()
     @commands.has_permissions(administrator=True)
     async def clearall(ctx):
-        await ctx.send("Clearing all messages in this channel... ⚠️", delete_after=5)
+        await ctx.send("Clearing all messages in this channel...", delete_after=5)
         def not_pinned(msg): return not msg.pinned
         deleted = 0
         while True:
@@ -36,7 +34,7 @@ def setup_commands(bot):
 
     @bot.command()
     async def deals(ctx):
-        await ctx.send("Fetching the best game deals, please wait... 🔎")
+        await ctx.send("Fetching the best game deals, please wait...")
         loop = asyncio.get_running_loop()
         deals = await loop.run_in_executor(None, fetch_steam_deals)
         good_deals = deals['good_deals']
@@ -56,7 +54,7 @@ def setup_commands(bot):
 
     @bot.command()
     async def baddeals(ctx):
-        await ctx.send("Fetching bad big game deals, please wait... ⚠️")
+        await ctx.send("Fetching bad big game deals, please wait...")
         loop = asyncio.get_running_loop()
         deals = await loop.run_in_executor(None, fetch_steam_deals)
         bad_deals = deals['bad_deals']
@@ -76,7 +74,7 @@ def setup_commands(bot):
 
     @bot.command()
     async def freebies(ctx):
-        await ctx.send("Fetching Epic's current free games, please wait... 🎁")
+        await ctx.send("Fetching Epic's current free games, please wait...")
         freebies = fetch_epic_freebies()
         if not freebies:
             await ctx.send("No free games found right now!")
@@ -96,8 +94,7 @@ def setup_commands(bot):
     @commands.has_permissions(administrator=True)
     async def monthly(ctx):
         """Posts current month's game releases with rich previews."""
-        from utils.steam_utils import \
-            get_steam_link_and_image  # ✅ Using correct method
+        from utils.steam_utils import get_steam_link_and_image
 
         await ctx.send("📅 Fetching this month's releases, please wait...")
 

@@ -1,6 +1,3 @@
-import asyncio
-from datetime import datetime
-
 from playwright.async_api import async_playwright
 
 
@@ -66,7 +63,7 @@ if __name__ == "__main__":
     games = get_pc_games_for_month("July", 2025)
     print(f"\n📅 July 2025 PC Releases:")
     if not games:
-        print("⚠️ No games found for this month!")
+        print("No games found for this month!")
     else:
         for game in games:
             print(f"• {game['title']} – {game['date']} – {game['link']}")

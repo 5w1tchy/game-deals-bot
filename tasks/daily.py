@@ -96,7 +96,7 @@ async def daily_poster():
 
                 if description:
                     embed = discord.Embed(
-                        title="⚠️ Top Bad Big Game Deals",
+                        title="Top Bad Big Game Deals",
                         description=description.strip(),
                         color=0xFF4500
                     )

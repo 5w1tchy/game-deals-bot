@@ -48,7 +48,7 @@ async def weekly_poster():
                 else:
                     await free_channel.send("No free Epic games found this week. 🎁")
 
-                # ✅ Only update the post date if freebies were actually sent
+                # Only update the post date if freebies were actually sent
                 status["weekly_post_date"] = str(now.date())
                 write_weekly_status(status)
 
