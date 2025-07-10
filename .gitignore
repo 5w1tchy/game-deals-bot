@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# VSCode settings
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Python virtualenv wrapper
+*.swp
+*.swo
+
+# Environment/config files
+config.py
+settings.json
+
+# Cache/log files
+*.log
+
+# Data files (can be excluded if you don't want to track state)
+data/daily_post_status.json
+data/weekly_post_status.json
+data/last_posted.json
+data/posted_games.json
+data/posted_messages.json
