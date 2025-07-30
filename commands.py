@@ -98,6 +98,7 @@ def setup_commands(bot):
 
         await ctx.send("📅 Fetching this month's releases, please wait...")
 
+        # Get current month and year
         now = datetime.now(timezone.utc)
         month_name = now.strftime("%B")
         year = now.year
